@@ -30,6 +30,8 @@ public class CubeEditor : MonoBehaviour {
 
 
         textMesh = GetComponentInChildren<TextMesh>();
-        textMesh.text = (snap.x/GridSize).ToString() + "," + (snap.z/GridSize).ToString();
+        string postionText = (snap.x/GridSize).ToString() + "," + (snap.z/GridSize).ToString();
+        textMesh.text = postionText;
+        this.name = "Cube (" + postionText + ")";
     }
 }
