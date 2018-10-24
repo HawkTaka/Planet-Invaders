@@ -5,20 +5,26 @@ using UnityEngine;
 public class EmemyMovment : MonoBehaviour {
 
 
-    [SerializeField] public List<Block> Path = new List<Block>();
+    [SerializeField] public List<Waypoint> Path = new List<Waypoint>();
+    [SerializeField] public float DwellTime = 1f;
+
 
 	// Use this for initialization
 	void Start ()
     {
-        PrintAllWaypoints();
+        StartCoroutine(FollowPath());        
     }
 
-    private void PrintAllWaypoints()
+    private IEnumerator FollowPath()
     {
+        print("Starting Patrol");
         foreach (var pathItem in Path)
         {
-            print(pathItem.name);
+            print("Visiting: "+pathItem.name);
+            transform.position = pathItem.transform.position;
+            yield return new WaitForSeconds(DwellTime);
         }
+        print("Ending Patrol");
     }
 
     // Update is called once per frame
