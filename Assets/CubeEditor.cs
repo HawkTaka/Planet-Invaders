@@ -1,37 +1,47 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 
 [ExecuteInEditMode]
 [SelectionBase]
+[RequireComponent(typeof(Waypoint))]
 public class CubeEditor : MonoBehaviour {
-    [SerializeField] [Range(1f,20f)] float GridSize = 10f;
-    TextMesh textMesh;
 
+    const int GridSize = 10;
+    Waypoint waypoint;
 
-    void Start()
+    private void Awake()
     {
-              
+        waypoint = GetComponent<Waypoint>();
     }
+
 
     // Update is called once per frame
     void Update ()
     {
         SnapToPosition();
+        UpdateLable();
+    }
+
+    private void UpdateLable()
+    {
+        int GridSize = waypoint.GetGridSize();
+
+        TextMesh textMesh = GetComponentInChildren<TextMesh>();
+        string postionText = (waypoint.GetGridPos().x / GridSize).ToString() + "," + (waypoint.GetGridPos().y / GridSize).ToString();
+        textMesh.text = postionText;
+        this.name = "Cube (" + postionText + ")";
     }
 
     private void SnapToPosition()
     {
-        Vector3 snap = new Vector3();
-        snap.x = Mathf.RoundToInt(this.transform.position.x / GridSize) * GridSize;
-        snap.z = Mathf.RoundToInt(this.transform.position.z / GridSize) * GridSize;
-        transform.position = new Vector3(snap.x, 0, snap.z);
+        waypoint = GetComponent<Waypoint>();
 
-
-        textMesh = GetComponentInChildren<TextMesh>();
-        string postionText = (snap.x/GridSize).ToString() + "," + (snap.z/GridSize).ToString();
-        textMesh.text = postionText;
-        this.name = "Cube (" + postionText + ")";
+        transform.position = new Vector3(
+            waypoint.GetGridPos().x,
+            0,
+            waypoint.GetGridPos().y);
     }
 }
