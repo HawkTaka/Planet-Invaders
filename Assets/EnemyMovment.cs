@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EmemyMovment : MonoBehaviour {
+public class EnemyMovment : MonoBehaviour {
 
 
     [SerializeField] public List<Waypoint> Path = new List<Waypoint>();
