@@ -20,7 +20,11 @@ public class EnemyMovment : MonoBehaviour {
     {
         foreach (var pathItem in path)
         {
-            transform.position = pathItem.transform.position;
+            Vector3 newPos = new Vector3(pathItem.transform.position.x,10, pathItem.transform.position.z);
+            transform.position = newPos;
+
+            //transform.position = pathItem.transform.position;
+
             yield return new WaitForSeconds(DwellTime);
         }
     }
