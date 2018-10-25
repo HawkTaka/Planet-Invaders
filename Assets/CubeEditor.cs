@@ -11,7 +11,7 @@ public class CubeEditor : MonoBehaviour {
 
     const int GridSize = 10;
     Waypoint waypoint;
-
+    
     private void Awake()
     {
         waypoint = GetComponent<Waypoint>();
@@ -30,7 +30,7 @@ public class CubeEditor : MonoBehaviour {
         int GridSize = waypoint.GetGridSize();
 
         TextMesh textMesh = GetComponentInChildren<TextMesh>();
-        string postionText = (waypoint.GetGridPos().x / GridSize).ToString() + "," + (waypoint.GetGridPos().y / GridSize).ToString();
+        string postionText = (waypoint.GetGridPos().x).ToString() + "," + (waypoint.GetGridPos().y).ToString();
         textMesh.text = postionText;
         this.name = "Cube (" + postionText + ")";
     }
@@ -40,8 +40,8 @@ public class CubeEditor : MonoBehaviour {
         waypoint = GetComponent<Waypoint>();
 
         transform.position = new Vector3(
-            waypoint.GetGridPos().x,
+            waypoint.GetGridPos().x * waypoint.GetGridSize(),
             0,
-            waypoint.GetGridPos().y);
+            waypoint.GetGridPos().y * waypoint.GetGridSize());
     }
 }
