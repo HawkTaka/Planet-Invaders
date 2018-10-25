@@ -27,8 +27,6 @@ public class CubeEditor : MonoBehaviour {
 
     private void UpdateLable()
     {
-        int GridSize = waypoint.GetGridSize();
-
         TextMesh textMesh = GetComponentInChildren<TextMesh>();
         string postionText = (waypoint.GetGridPos().x).ToString() + "," + (waypoint.GetGridPos().y).ToString();
         textMesh.text = postionText;
