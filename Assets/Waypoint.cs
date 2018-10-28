@@ -9,6 +9,7 @@ public class Waypoint : MonoBehaviour {
 
     public bool isExplored = false;
     public Waypoint ExploredFrom;
+    public bool isPlaceable = true;
 
     public Vector2Int  GetGridPos()
     {
@@ -30,4 +31,29 @@ public class Waypoint : MonoBehaviour {
         topMesh.material.color = color;
     }
 
+
+
+
+    private void OnMouseOver()
+    {
+        if (isPlaceable)
+        {
+
+            if (Input.GetMouseButton(0))
+            {
+                PlaceTower();
+            }
+            if (Input.GetMouseButton(1)) { print("button 1"); }
+            if (Input.GetMouseButton(2)) { print("button 2"); }
+        }
+    }
+
+    private void PlaceTower()
+    {
+        TowerController towerController = FindObjectOfType<TowerController>();
+        towerController.PlaceTower(this);
+        isPlaceable = false;
+    }
+
+    
 }

@@ -16,11 +16,7 @@ public class EnemySpawner : MonoBehaviour {
             return;
         }
 
-
-
-            StartCoroutine(Spawn());
-      
-
+        StartCoroutine(Spawn());
     }
 
 
