@@ -19,10 +19,16 @@ public class EnemyDamage : MonoBehaviour {
         HitParticle.Play();
         if (HitPoints <= 0)
         {
-            var deathFX = Instantiate(DeathParticle, transform.position, Quaternion.identity);
-            deathFX.Play();
+            DeathEffects();
             Destroy(gameObject);
-            
         }
+    }
+
+    private void DeathEffects()
+    {
+        var deathFX = Instantiate(DeathParticle, transform.position, Quaternion.identity);
+        deathFX.Play();
+        float playtime = deathFX.main.duration;
+        Destroy(deathFX.gameObject, playtime);
     }
 }

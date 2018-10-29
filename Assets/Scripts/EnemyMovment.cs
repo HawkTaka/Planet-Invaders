@@ -5,9 +5,9 @@ using UnityEngine;
 public class EnemyMovment : MonoBehaviour {
     [SerializeField] public float DwellTime = 1f;
     List<Waypoint> path = new List<Waypoint>();
-
-	// Use this for initialization
-	void Start ()
+    [SerializeField] ParticleSystem GoalParticle;
+    // Use this for initialization
+    void Start ()
     {
 
         PathFinder pathFinder = FindObjectOfType<PathFinder>();
@@ -27,10 +27,18 @@ public class EnemyMovment : MonoBehaviour {
 
             yield return new WaitForSeconds(DwellTime);
         }
+
+        SelfDestruct();
     }
 
-    // Update is called once per frame
-    void Update () {
-		
-	}
+
+    private void SelfDestruct()
+    {
+        var deathFX = Instantiate(GoalParticle, transform.position, Quaternion.identity);
+        deathFX.Play();
+        float playtime = deathFX.main.duration;
+        Destroy(deathFX.gameObject, playtime);
+        Destroy(gameObject);
+    }
+
 }

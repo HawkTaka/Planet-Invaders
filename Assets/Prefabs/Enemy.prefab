@@ -404,6 +404,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DwellTime: 1
+  GoalParticle: {fileID: 198537984209914932, guid: 1a51bfda454239a41afb7dee687c6ac0,
+    type: 2}
 --- !u!114 &114091650546973934
 MonoBehaviour:
   m_ObjectHideFlags: 1
