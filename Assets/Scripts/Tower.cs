@@ -8,7 +8,7 @@ public class Tower : MonoBehaviour {
     [SerializeField] public GameObject top;
     [SerializeField] public float Range = 10f;
     [SerializeField] ParticleSystem Guns;
-
+    public Waypoint waypoint;
 
     private Enemy target;
 
