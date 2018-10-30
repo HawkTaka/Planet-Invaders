@@ -48,10 +48,28 @@ public class Tower : MonoBehaviour {
 
     private void FindTraget()
     {
+        float closestDistance;
+
+
         target = null;
         List<Enemy> EnemyList = FindObjectsOfType<Enemy>().ToList();
         if (EnemyList.Count == 0) { return; }
-        EnemyList.OrderBy(o => Vector3.Distance(gameObject.transform.position, o.transform.position));
-        target = EnemyList[0]; //Closest Traget.
+
+
+        target = EnemyList[0];
+        closestDistance = Vector3.Distance(gameObject.transform.position, target.transform.position);
+
+
+        foreach (var item in EnemyList)
+        {
+            float currentDistance = Vector3.Distance(gameObject.transform.position, item.transform.position);
+            if (currentDistance < closestDistance)
+            {
+                target = item;
+                closestDistance = currentDistance;
+            }
+
+        }
+
     }
 }
