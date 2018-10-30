@@ -7,6 +7,7 @@ public class PlayerHealthController : MonoBehaviour {
 
     [SerializeField] int PlayerHealthPoints = 10;
     [SerializeField] Text PlayerHealthUI;
+    [SerializeField] AudioClip LoseHPSfx;
 
     private void Start()
     {
@@ -20,6 +21,8 @@ public class PlayerHealthController : MonoBehaviour {
 
         PlayerHealthPoints--;
         PlayerHealthUI.text = PlayerHealthPoints.ToString();
+        GetComponent<AudioSource>().PlayOneShot(LoseHPSfx);
+
 
         if (PlayerHealthPoints <= 0)
         {
