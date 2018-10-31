@@ -8,10 +8,10 @@ This Project is not very advance but contain the following:
  - Player Health System 
  - Enemy Spawning
  - Editor Script for building Map (snap to location)
-- Audio Effects
+ - Audio Effects
 
 **Still outstanding:**
--Finish game Look  (no death of player)
--Smooth Movment (current movemnt is teleporting from waypoint to waypoint)
--UI enhancements  (Label on screen values)
--UI Interface (allow upgrading of seleted towers.)
+ -Finish game Look  (no death of player)
+ -Smooth Movment (current movemnt is teleporting from waypoint to waypoint)
+ -UI enhancements  (Label on screen values)
+ -UI Interface (allow upgrading of seleted towers.)
