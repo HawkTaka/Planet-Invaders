@@ -37,6 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4095404234995224}
   - component: {fileID: 114824725370019662}
+  - component: {fileID: 65669517723733498}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -98,7 +99,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1626750818494694}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21, y: 9.3, z: -13}
+  m_LocalPosition: {x: 70.47073, y: 10, z: -29.318375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4705789206194498}
@@ -217,6 +218,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1365621535986396}
   m_Mesh: {fileID: 4300000, guid: 2b9fa85ac3400f34086a67af0c3979ee, type: 3}
+--- !u!65 &65669517723733498
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1626750818494694}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9, y: 9, z: 9}
+  m_Center: {x: 0, y: 5, z: 0}
 --- !u!114 &114824725370019662
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -231,6 +244,7 @@ MonoBehaviour:
   top: {fileID: 1365621535986396}
   Range: 40
   Guns: {fileID: 198334968311714862}
+  waypoint: {fileID: 0}
 --- !u!198 &198334968311714862
 ParticleSystem:
   m_ObjectHideFlags: 1

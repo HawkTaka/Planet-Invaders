@@ -8,6 +8,9 @@ public class Tower : MonoBehaviour {
     [SerializeField] public GameObject top;
     [SerializeField] public float Range = 10f;
     [SerializeField] ParticleSystem Guns;
+
+    [SerializeField] public float Level = 1;
+
     public Waypoint waypoint;
 
     private Enemy target;
@@ -32,7 +35,8 @@ public class Tower : MonoBehaviour {
         if (target != null)
         {
             float distance = Vector3.Distance(gameObject.transform.position, target.transform.position);
-            if(distance < Range)
+            float leveledRange = Range + (Range * (Level / 10));
+            if(distance < (leveledRange * (Level*0.1)))
             {
                 Shoot(true);
                 top.transform.LookAt(target.transform);
@@ -72,4 +76,12 @@ public class Tower : MonoBehaviour {
         }
 
     }
+
+
+    private void OnMouseOver()
+    {
+        var TowerController = FindObjectOfType<TowerController>();
+        TowerController.SelectedTower = gameObject.GetComponent<Tower>();
+    }
+
 }

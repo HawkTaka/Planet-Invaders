@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class EnemyMovment : MonoBehaviour {
     [SerializeField] public float DwellTime = 1f;
+    [SerializeField] float MovmentSpeed = 1f;
     List<Waypoint> path = new List<Waypoint>();
     [SerializeField] ParticleSystem GoalParticle;
+    float Timer;
     // Use this for initialization
     void Start ()
     {
@@ -18,12 +20,17 @@ public class EnemyMovment : MonoBehaviour {
 
     private IEnumerator FollowPath()
     {
+
         foreach (var pathItem in path)
         {
-            Vector3 newPos = new Vector3(pathItem.transform.position.x,10, pathItem.transform.position.z);
-            transform.position = newPos;
+            Vector3 NextStop = new Vector3(pathItem.transform.position.x, 10, pathItem.transform.position.z);
+            
 
-            //transform.position = pathItem.transform.position;
+            while (Vector3.Distance(transform.position,NextStop) > 0.1)
+            {
+                Timer += Time.deltaTime * MovmentSpeed;
+                transform.position = Vector3.Lerp(transform.position, NextStop, Timer);
+            }
 
             yield return new WaitForSeconds(DwellTime);
         }
