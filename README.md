@@ -1,5 +1,5 @@
 # Planet-Invaders
-Planet Invaders: A Tower defense game (Demo) designed in Unity for practice.
+Planet Invaders: A Tower Defence game (Demo) designed in Unity for practice.
 This Project is not very advance but contain the following:
 
 **Features:**
@@ -13,6 +13,6 @@ This Project is not very advance but contain the following:
 **Still outstanding:**
 
  - Finish game Loop  (no death of player)
- - Smooth Movment (current movemnt is teleporting from waypoint to waypoint) 
+ - Smooth movement  (current movement  is teleporting from waypoint to waypoint) 
  - UI enhancements  (Label on screen values)
- - UI Interface (allow upgrading of seleted towers.)
+ - UI Interface (allow upgrading of selected  towers.)
