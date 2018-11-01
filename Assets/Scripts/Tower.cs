@@ -80,8 +80,11 @@ public class Tower : MonoBehaviour {
 
     private void OnMouseOver()
     {
-        var TowerController = FindObjectOfType<TowerController>();
-        TowerController.SelectedTower = gameObject.GetComponent<Tower>();
+        if (Input.GetMouseButton(0))
+        {
+            var TowerController = FindObjectOfType<TowerController>();
+            TowerController.SelectedTower = gameObject.GetComponent<Tower>();
+        }
     }
 
 }

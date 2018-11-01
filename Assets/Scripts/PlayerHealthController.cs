@@ -26,7 +26,8 @@ public class PlayerHealthController : MonoBehaviour {
 
         if (PlayerHealthPoints <= 0)
         {
-            //Stop Game Loop ?
+            //Add a You lose Screen.
+            Application.Quit();
         }
     }
 }
